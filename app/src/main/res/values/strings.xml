@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Testing in Android</string>
+    <string name="main_activity_subtitle">Using JUnit &amp; Mockito</string>
+    <string name="unit_test">Unit test</string>
+    <string name="name_label">Name</string>
+    <string name="name_hint">Enter your name</string>
+    <string name="dob_label">Date of birth</string>
+    <string name="email_label">Email</string>
+    <string name="email_hint">Enter your email</string>
+    <string name="save">Save</string>
+    <string name="revert">Revert</string>
+    <string name="settings">Settings</string>
+</resources>
