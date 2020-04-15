@@ -1,9 +1,8 @@
-package com.example.testinginandroid;
+package com.example.testinginandroid.utils;
 
 import android.content.SharedPreferences;
 
 import com.example.testinginandroid.model.User;
-import com.example.testinginandroid.utils.SharedPreferencesHelper;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +20,7 @@ import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.when;
 
 /**
- * Unit tests for the {@link SharedPreferencesHelper} that mocks {@link SharedPreferences}
+ * Unit tests (Local) for the {@link SharedPreferencesHelper} that mocks {@link SharedPreferences}
  *
  * @author Abdullah Almasud
  */

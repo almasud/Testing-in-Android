@@ -1,13 +1,11 @@
-package com.example.testinginandroid;
-
-import com.example.testinginandroid.ui.utils.EmailValidator;
+package com.example.testinginandroid.ui.utils;
 
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 /**
- * Unit tests for the EmailValidator using JUnit framework
+ * Unit tests (Local) for the EmailValidator using JUnit framework
  *
  * @author Abdullah Almasud
  */

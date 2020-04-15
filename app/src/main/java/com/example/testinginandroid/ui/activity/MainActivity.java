@@ -2,18 +2,17 @@ package com.example.testinginandroid.ui.activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
-import com.example.testinginandroid.ui.utils.EmailValidator;
 import com.example.testinginandroid.R;
-import com.example.testinginandroid.utils.SharedPreferencesHelper;
 import com.example.testinginandroid.databinding.ActivityMainBinding;
 import com.example.testinginandroid.model.User;
+import com.example.testinginandroid.ui.utils.EmailValidator;
+import com.example.testinginandroid.utils.SharedPreferencesHelper;
 
 import java.util.Calendar;
 
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initFields() {
         User user = mSharedPreferencesHelper.getPersonalInfo();
-        mVewBinding.userNameInput.setText(user.getName());
+        mVewBinding.usernameInput.setText(user.getName());
         Calendar dateOfBirth = user.getDateOfBirth();
         mVewBinding.dateOfBirthInput.init(dateOfBirth.get(Calendar.YEAR),
                 dateOfBirth.get(Calendar.MONTH), dateOfBirth.get(Calendar.DAY_OF_MONTH),
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Get the text from the input fields
-        String name = mVewBinding.userNameInput.getText().toString();
+        String name = mVewBinding.usernameInput.getText().toString();
         Calendar dateOfBirth = Calendar.getInstance();
         dateOfBirth.set(mVewBinding.dateOfBirthInput.getYear(),
                 mVewBinding.dateOfBirthInput.getMonth(),
@@ -86,9 +85,11 @@ public class MainActivity extends AppCompatActivity {
         boolean isSuccess = mSharedPreferencesHelper.savePersonalInfo(user);
 
         if (isSuccess) {
-            Toast.makeText(this, "Settings is saved to your device", Toast.LENGTH_LONG).show();
+            mVewBinding.submitMessage.setTextColor(getResources().getColor(R.color.colorSuccess));
+            mVewBinding.submitMessage.setText(R.string.settings_save_success_message);
         } else {
-            Toast.makeText(this, "Failed to save the settings", Toast.LENGTH_LONG).show();
+            mVewBinding.submitMessage.setTextColor(getResources().getColor(R.color.colorError));
+            mVewBinding.submitMessage.setText(R.string.settings_save_error_message);
         }
     }
 
@@ -98,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onRevertClick(View view) {
         initFields();
-        Toast.makeText(this, "Settings information is retrieved", Toast.LENGTH_LONG).show();
+        mVewBinding.submitMessage.setTextColor(getResources().getColor(R.color.colorSuccess));
+        mVewBinding.submitMessage.setText(R.string.settings_retrieve_message);
         Log.i(TAG, "Settings information is retrieved");
     }
 }
