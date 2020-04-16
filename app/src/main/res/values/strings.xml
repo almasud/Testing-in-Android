@@ -12,5 +12,5 @@
     <string name="settings">Settings</string>
     <string name="settings_save_success_message">Settings successfully saved to your device</string>
     <string name="settings_save_error_message">Failed to save settings</string>
-    <string name="settings_retrieve_message">Settings information successfully retrieved</string>
+    <string name="settings_retrieve_message">Settings information is successfully retrieved</string>
 </resources>

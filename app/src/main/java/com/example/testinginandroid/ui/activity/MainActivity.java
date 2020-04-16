@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
@@ -84,13 +85,10 @@ public class MainActivity extends AppCompatActivity {
         User user = new User(name, dateOfBirth, email);
         boolean isSuccess = mSharedPreferencesHelper.savePersonalInfo(user);
 
-        if (isSuccess) {
-            mVewBinding.submitMessage.setTextColor(getResources().getColor(R.color.colorSuccess));
-            mVewBinding.submitMessage.setText(R.string.settings_save_success_message);
-        } else {
-            mVewBinding.submitMessage.setTextColor(getResources().getColor(R.color.colorError));
-            mVewBinding.submitMessage.setText(R.string.settings_save_error_message);
-        }
+        if (isSuccess)
+            Toast.makeText(this, getResources().getString(R.string.settings_save_success_message), Toast.LENGTH_LONG).show();
+         else
+            Toast.makeText(this, getResources().getString(R.string.settings_save_error_message), Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -99,8 +97,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onRevertClick(View view) {
         initFields();
-        mVewBinding.submitMessage.setTextColor(getResources().getColor(R.color.colorSuccess));
-        mVewBinding.submitMessage.setText(R.string.settings_retrieve_message);
-        Log.i(TAG, "Settings information is retrieved");
+        Toast.makeText(this, getResources().getString(R.string.settings_retrieve_message), Toast.LENGTH_LONG).show();
+        Log.i(TAG, getResources().getString(R.string.settings_retrieve_message));
     }
 }
