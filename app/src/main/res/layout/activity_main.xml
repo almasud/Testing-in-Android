@@ -77,6 +77,24 @@
             android:layout_gravity="start"
             android:layout_marginBottom="@dimen/activity_vertical_margin"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="@string/share_data"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:checked="false"
+            android:textOn="@string/on"
+            android:textOff="@string/off"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

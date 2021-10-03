@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion 31
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.example.testinginandroid"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -35,22 +35,20 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.test.espresso:espresso-contrib:3.4.0'
 
     // Automation framework for Unit as well as UI testing
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.2'
     // Assertions
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     // AndroidJUnitRunner and JUnit Rules
-    androidTestImplementation 'androidx.test:rules:1.2.0'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
     // Espresso core dependencies
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    // PickerActions need the dependency and AndroidTest buil failed for dependency / constraint error
-    // Espresso contrib for DatePicker, RecyclerView, Drawer actions, Accessibility checks, CountingIdlingResource
-//    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     // Mocks (fakes) dependencies required by the class being tested
     testImplementation 'org.mockito:mockito-core:1.10.19'
 }

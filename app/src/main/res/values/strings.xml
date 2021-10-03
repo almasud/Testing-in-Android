@@ -13,4 +13,7 @@
     <string name="settings_save_success_message">Settings successfully saved to your device</string>
     <string name="settings_save_error_message">Failed to save settings</string>
     <string name="settings_retrieve_message">Settings information is successfully retrieved</string>
+    <string name="share_data">Share data</string>
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
 </resources>

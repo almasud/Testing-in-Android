@@ -16,6 +16,7 @@ public class SharedPreferencesHelper {
     public static final String KEY_NAME = "key_name";
     public static final String KEY_DOB = "key_dob_millis";
     public static final String KEY_EMAIL = "key_email";
+    public static final String KEY_DATA_SHARABLE = "key_sharable";
 
     // The injected SharedPreferences implementation to use for persistence
     private final SharedPreferences mSharedPreferences;
@@ -39,6 +40,7 @@ public class SharedPreferencesHelper {
         editor.putString(KEY_NAME, user.getName());
         editor.putLong(KEY_DOB, user.getDateOfBirth().getTimeInMillis());
         editor.putString(KEY_EMAIL, user.getEmail());
+        editor.putBoolean(KEY_DATA_SHARABLE, user.isDataSharable());
 
         // Commit changes to SharedPreferences
         return editor.commit();
@@ -55,8 +57,9 @@ public class SharedPreferencesHelper {
         Calendar dateOfBirth = Calendar.getInstance();
         dateOfBirth.setTimeInMillis(dobMillis);
         String email = mSharedPreferences.getString(KEY_EMAIL, "");
+        boolean isDataSharable = mSharedPreferences.getBoolean(KEY_DATA_SHARABLE, false);
 
         // Create and fill a SharedPreferenceEntry model object
-        return new User(name, dateOfBirth, email);
+        return new User(name, dateOfBirth, email, isDataSharable);
     }
 }

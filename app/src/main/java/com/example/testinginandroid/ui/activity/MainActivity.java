@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 dateOfBirth.get(Calendar.MONTH), dateOfBirth.get(Calendar.DAY_OF_MONTH),
                 null);
         mVewBinding.emailInput.setText(user.getEmail());
+        mVewBinding.switchShare.setChecked(user.isDataSharable());
     }
 
     /**
@@ -80,15 +81,21 @@ public class MainActivity extends AppCompatActivity {
                 mVewBinding.dateOfBirthInput.getMonth(),
                 mVewBinding.dateOfBirthInput.getDayOfMonth());
         String email = mVewBinding.emailInput.getText().toString();
+        boolean isDataSharable = mVewBinding.switchShare.isChecked();
 
         // Set the data into Person model and finally saved to persist
-        User user = new User(name, dateOfBirth, email);
+        User user = new User(name, dateOfBirth, email, isDataSharable);
         boolean isSuccess = mSharedPreferencesHelper.savePersonalInfo(user);
 
-        if (isSuccess)
-            Toast.makeText(this, getResources().getString(R.string.settings_save_success_message), Toast.LENGTH_LONG).show();
-         else
-            Toast.makeText(this, getResources().getString(R.string.settings_save_error_message), Toast.LENGTH_LONG).show();
+        if (isSuccess) {
+            mVewBinding.submitMessage.setTextColor(getResources().getColor(R.color.colorSuccess));
+            mVewBinding.submitMessage.setText(getResources().getString(R.string.settings_save_success_message));
+//            Toast.makeText(this, getResources().getString(R.string.settings_save_success_message), Toast.LENGTH_LONG).show();
+        } else {
+            mVewBinding.submitMessage.setTextColor(getResources().getColor(R.color.colorError));
+            mVewBinding.submitMessage.setText(getResources().getString(R.string.settings_save_error_message));
+//            Toast.makeText(this, getResources().getString(R.string.settings_save_error_message), Toast.LENGTH_LONG).show();
+        }
     }
 
     /**
@@ -97,7 +104,9 @@ public class MainActivity extends AppCompatActivity {
      */
     public void onRevertClick(View view) {
         initFields();
-        Toast.makeText(this, getResources().getString(R.string.settings_retrieve_message), Toast.LENGTH_LONG).show();
-        Log.i(TAG, getResources().getString(R.string.settings_retrieve_message));
+        mVewBinding.submitMessage.setTextColor(getResources().getColor(R.color.colorSuccess));
+        mVewBinding.submitMessage.setText(getResources().getString(R.string.settings_retrieve_message));
+//        Toast.makeText(this, getResources().getString(R.string.settings_retrieve_message), Toast.LENGTH_LONG).show();
+//        Log.i(TAG, getResources().getString(R.string.settings_retrieve_message));
     }
 }

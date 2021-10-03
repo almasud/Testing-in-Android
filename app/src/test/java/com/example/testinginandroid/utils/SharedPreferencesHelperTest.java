@@ -29,6 +29,7 @@ public class SharedPreferencesHelperTest {
     private static final String TEST_NAME = "test_name";
     private static final String TEST_EMAIL = "test@email.com";
     private static final Calendar TEST_DATE_OF_BIRTH = Calendar.getInstance();
+    private static final boolean TEST_DATA_SHARABLE = false;
     private User mUser;
     private SharedPreferencesHelper mMockSharedPreferencesHelper;
     private SharedPreferencesHelper mMockBrokenSharedPreferencesHelper;
@@ -48,7 +49,7 @@ public class SharedPreferencesHelperTest {
     @Before
     public void initMocks() {
         // Person to persist
-        mUser = new User(TEST_NAME, TEST_DATE_OF_BIRTH, TEST_EMAIL);
+        mUser = new User(TEST_NAME, TEST_DATE_OF_BIRTH, TEST_EMAIL, TEST_DATA_SHARABLE);
         // Mocked SharedPreferences
         mMockSharedPreferencesHelper = createMockSharedPreference();
         // Mocked SharedPreferences that fails when writing

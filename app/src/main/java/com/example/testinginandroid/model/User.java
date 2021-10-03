@@ -11,22 +11,28 @@ public class User {
     private final String name;
     private final Calendar dateOfBirth;
     private final String email;
+    private final boolean isDataSharable;
 
-    public User(String name, Calendar dateOfBirth, String email) {
+    public User(String name, Calendar dateOfBirth, String email, boolean isDataSharable) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.email = email;
+        this.isDataSharable = isDataSharable;
     }
 
     public String getName() {
         return name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public Calendar getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public String getEmail() {
-        return email;
+    public boolean isDataSharable() {
+        return isDataSharable;
     }
 }
